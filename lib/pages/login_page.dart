@@ -1,3 +1,4 @@
+import 'package:fitness_ui/pages/root_app.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -122,30 +123,36 @@ class _LoginPageState extends State<LoginPage> {
                 height: (size.height - 60) * 0.5,
                 child: Column(
                   children: [
-                    Container(
-                      height: 50,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              secondary,
-                              primary,
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.arrow_forward_sharp, color: white),
-                          SizedBox(width: 5),
-                          Text(
-                            'Login',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: white,
-                                fontWeight: FontWeight.bold),
-                          )
-                        ],
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => RootApp()));
+                      },
+                      child: Container(
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                secondary,
+                                primary,
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.arrow_forward_sharp, color: white),
+                            SizedBox(width: 5),
+                            Text(
+                              'Login',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: white,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(height: 20),

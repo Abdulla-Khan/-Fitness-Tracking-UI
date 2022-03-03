@@ -3,7 +3,7 @@ import 'pages/login_page.dart';
 import 'router.dart' as router;
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     onGenerateRoute: router.generateRoute,
     home: LoginPage(),
