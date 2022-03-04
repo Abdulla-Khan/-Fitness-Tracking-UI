@@ -1,3 +1,4 @@
+import 'package:fitness_ui/pages/homepage.dart';
 import 'package:fitness_ui/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -21,10 +22,8 @@ class _RootAppState extends State<RootApp> {
   }
 
   Widget getBody() {
-    return IndexedStack(index: pageIndex, children: [
-      Center(
-        child: Text('Home'),
-      ),
+    return IndexedStack(index: pageIndex, children: const [
+      HomePage(),
       Center(
         child: Text('Chart'),
       ),
