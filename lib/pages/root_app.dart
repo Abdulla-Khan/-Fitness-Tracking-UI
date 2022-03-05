@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
 class RootApp extends StatefulWidget {
-  const RootApp({Key? key}) : super(key: key);
+  const RootApp({Key key}) : super(key: key);
 
   @override
   State<RootApp> createState() => _RootAppState();

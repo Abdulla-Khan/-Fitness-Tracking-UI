@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../theme/colors.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();

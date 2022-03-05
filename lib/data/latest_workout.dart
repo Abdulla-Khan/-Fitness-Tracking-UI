@@ -2,19 +2,19 @@ import '../theme/colors.dart';
 
 const List latestWorkoutJson = [
   {
-    "img": "assets/images/workout_1.png",
+    "img": "assets/workout_1.png",
     "title": "Fullbody Workout",
     "description": "180 Calories Burn | 20minutes",
     "progressBar": 0.3
   },
   {
-    "img": "assets/images/workout_2.png",
+    "img": "assets/workout_2.png",
     "title": "Lowerbody Workout",
     "description": "200 Calories Burn | 30minutes",
     "progressBar": 0.4
   },
   {
-    "img": "assets/images/workout_3.png",
+    "img": "assets/workout_3.png",
     "title": "Ab Workout",
     "description": "180 Calories Burn | 20minutes",
     "progressBar": 0.2
@@ -23,12 +23,12 @@ const List latestWorkoutJson = [
 
 const List latestActivityJson = [
   {
-    "img": "assets/images/drinking_water.png",
+    "img": "assets/drinking_water.png",
     "title": "Drinking 300ml Water",
     "time_ago": "About 3 minutes ago"
   },
   {
-    "img": "assets/images/eat_snack.png",
+    "img": "assets/eat_snack.png",
     "title": "Eat Snack (Fitbar)",
     "time_ago": "About 10 minutes ago"
   },

@@ -5,7 +5,7 @@ import '../theme/colors.dart';
 
 class WaterIntakeTimeLine extends StatelessWidget {
   const WaterIntakeTimeLine({
-    Key? key,
+    Key key,
   }) : super(key: key);
 
   @override

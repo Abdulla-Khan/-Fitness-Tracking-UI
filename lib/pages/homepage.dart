@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:fitness_ui/data/latest_workout.dart';
 import 'package:fitness_ui/widget/chart_activity_status.dart';
 import 'package:fitness_ui/widget/chart_sleep.dart';
+import 'package:fitness_ui/widget/chart_workout_progress.dart';
 import 'package:fitness_ui/widget/water_intake_progressbar.dart';
 import 'package:fitness_ui/widget/water_intake_timeline.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -11,7 +13,7 @@ import 'package:line_icons/line_icons.dart';
 import '../theme/colors.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -88,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'BMI (ffBody Mass Index)',
+                              'BMI (Body Mass Index)',
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
@@ -166,17 +168,22 @@ class _HomePageState extends State<HomePage> {
                             color: black,
                             fontWeight: FontWeight.w600),
                       ),
-                      Container(
-                        width: 70,
-                        height: 35,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            gradient:
-                                LinearGradient(colors: [secondary, primary])),
-                        child: Center(
-                          child: Text(
-                            'Check',
-                            style: TextStyle(fontSize: 13, color: white),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/today_target_detail');
+                        },
+                        child: Container(
+                          width: 70,
+                          height: 35,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              gradient:
+                                  LinearGradient(colors: [secondary, primary])),
+                          child: Center(
+                            child: Text(
+                              'Check',
+                              style: TextStyle(fontSize: 13, color: white),
+                            ),
                           ),
                         ),
                       )
@@ -365,6 +372,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 30),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Workout Progress',
@@ -373,8 +381,174 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold,
                         color: black),
                   ),
+                  Container(
+                    width: 95,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [secondary, primary],
+                      ),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          'Weekly',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: white,
+                          ),
+                        ),
+                        Icon(
+                          Icons.keyboard_arrow_down_outlined,
+                          color: white,
+                        )
+                      ],
+                    ),
+                  ),
                 ],
-              )
+              ),
+              SizedBox(height: 20),
+              Container(
+                width: double.infinity,
+                height: 220,
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: black.withOpacity(0.01),
+                    spreadRadius: 20,
+                    blurRadius: 10,
+                    offset: Offset(0, 10),
+                  ),
+                ], borderRadius: BorderRadius.circular(30)),
+                child: LineChart(workoutProgressData()),
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Latest Workout',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: black),
+                  ),
+                  Text(
+                    'See more',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: black.withOpacity(0.5),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Column(
+                  children: List.generate(latestWorkoutJson.length, (index) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: black.withOpacity(0.01),
+                          spreadRadius: 20,
+                          blurRadius: 10,
+                          offset: Offset(0, 10),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image:
+                                    AssetImage(latestWorkoutJson[index]['img']),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 15),
+                          Flexible(
+                            child: Container(
+                              height: 55,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    latestWorkoutJson[index]['title'],
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    latestWorkoutJson[index]['description'],
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: black.withOpacity(0.5),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Stack(children: [
+                                    Container(
+                                      width: s.width,
+                                      height: 10,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: bgTextField,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: s.width *
+                                          (latestWorkoutJson[index]
+                                              ['progressBar']),
+                                      height: 10,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          gradient: LinearGradient(colors: [
+                                            primary,
+                                            secondary,
+                                          ])),
+                                    ),
+                                  ])
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 15),
+                          Container(
+                            width: 20,
+                            height: 20,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(color: primary)),
+                            child: Center(
+                              child: Icon(
+                                Icons.arrow_forward_ios_sharp,
+                                size: 11,
+                                color: primary,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }))
             ],
           ),
         ),

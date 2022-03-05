@@ -4,7 +4,7 @@ import '../theme/colors.dart';
 
 class WateIntakeProgressBar extends StatelessWidget {
   const WateIntakeProgressBar({
-    Key? key,
+    Key key,
   }) : super(key: key);
 
   @override

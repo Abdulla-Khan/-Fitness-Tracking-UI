@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pages/root_app.dart';
+import 'pages/today_target_detail_page.dart';
 
 Route<dynamic> generateRoute(RouteSettings setting) {
   final Map<String, dynamic> args = new Map<String, dynamic>();
@@ -9,7 +10,7 @@ Route<dynamic> generateRoute(RouteSettings setting) {
     case '/root_app':
       return MaterialPageRoute(builder: (context) => const RootApp());
     case '/today_target_detail':
-    // return MaterialPageRoute(builder: (context) => TodayTargetDetailPage());
+      return MaterialPageRoute(builder: (context) => TodayTargetDetailPage());
     default:
       return MaterialPageRoute(
           builder: (context) => const Scaffold(
