@@ -19,18 +19,18 @@ class WaterIntakeTimeLine extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    width: 8,
+                    width: 6,
                     height: 8,
                     decoration: BoxDecoration(
                         color: thirdColor, shape: BoxShape.circle),
                   ),
                   SizedBox(
-                    width: 6,
+                    width: 4,
                   ),
                   Text(
                     waterIntakeJson[index],
                     style:
-                        TextStyle(fontSize: 12, color: black.withOpacity(0.5)),
+                        TextStyle(fontSize: 10, color: black.withOpacity(0.5)),
                   ),
                 ],
               ),
@@ -57,18 +57,18 @@ class WaterIntakeTimeLine extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    width: 8,
+                    width: 6,
                     height: 8,
                     decoration: BoxDecoration(
                         color: thirdColor, shape: BoxShape.circle),
                   ),
                   SizedBox(
-                    width: 6,
+                    width: 4,
                   ),
                   Text(
                     waterIntakeJson[index],
                     style:
-                        TextStyle(fontSize: 12, color: black.withOpacity(0.5)),
+                        TextStyle(fontSize: 10, color: black.withOpacity(0.5)),
                   ),
                 ],
               ),

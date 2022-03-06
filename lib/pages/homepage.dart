@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 5),
                       Text(
-                        'Sopheamen',
+                        'Abdullah',
                         style: TextStyle(
                           fontSize: 20,
                           color: black,
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(20.0),
                   child: Row(children: [
                     Flexible(
-                      child: Container(
+                      child: SizedBox(
                         width: s.width,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       child: LineChart(
                         activityData(),
@@ -479,8 +479,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(width: 15),
                           Flexible(
-                            child: Container(
-                              height: 55,
+                            child: SizedBox(
+                              height: 60,
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,

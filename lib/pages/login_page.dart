@@ -125,8 +125,8 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => RootApp()));
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, "/root_app", (route) => false);
                       },
                       child: Container(
                         height: 50,
